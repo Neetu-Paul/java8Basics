@@ -1,0 +1,15 @@
+public class DefaultMethodExample implements Square{
+
+    public void area( int a ) {
+        System.out.println("Area of a square with side "+a+": "+ a*a);
+    }
+
+    public static void main(String[] args) {
+        DefaultMethodExample defaultMethodExample = new DefaultMethodExample();
+        defaultMethodExample.area(5);
+
+        defaultMethodExample.perimeter(5);
+        Square.executeStaticMethod();
+
+    }
+}
