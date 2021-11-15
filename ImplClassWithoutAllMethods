@@ -1,0 +1,14 @@
+public class ImplClassWithoutAllMethods implements Square{
+
+    public void area(int a) {
+        System.out.println("Area of a square with side "+a+": "+ a*a);
+    }
+
+    public static void main(String[] args) {
+        ImplClassWithoutAllMethods implClassWithoutAllMethods = new ImplClassWithoutAllMethods();
+        implClassWithoutAllMethods.area(3);
+
+        Square.executeStaticMethod();
+
+    }
+}
