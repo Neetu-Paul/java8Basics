@@ -1,0 +1,11 @@
+public interface Square {
+
+    public void area(int a);
+    default public void perimeter(int a) {
+        System.out.println("Perimeter of a square with side "+a+": "+4*a);
+    }
+
+    static void executeStaticMethod() {
+        System.out.println("Static method executed");
+    }
+}
