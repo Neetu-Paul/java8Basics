@@ -1,0 +1,42 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class FunctionalInterfaceExample {
+
+    public static void main(String args[]) {
+
+        List<Product> productList = Arrays.asList(
+                new Product("Wheat flour", "Pantry", 500),
+                new Product("Rice flour", "Pantry", 300),
+                new Product("Cinnamon", "Spices", 250),
+                new Product("Cloves", "Spices", 150),
+                new Product("Pepper", "Spices", 200)
+        );
+
+        Collections.sort(productList, (p1, p2) -> p1.getProductName().compareTo(p2.getProductName()));
+
+        /*System.out.println("Printing all the products in alphabetical order");
+        printProducts(productList, p -> true);*/
+
+        System.out.println("Printing all the products whose name starts with letter C");
+        printProducts(productList, p -> p.getProductName().startsWith("C"));
+
+        System.out.println("Printing all the products with product category Pantry");
+        printProducts(productList, p -> p.getProductCategory().equalsIgnoreCase("Pantry"));
+
+        System.out.println("Printing all the products with price below 250");
+        printProducts(productList, p -> p.getProductPrice() < 250);
+
+    }
+
+    private static void printProducts(List<Product> products, Predicate<Product> productPredicate) {
+        for(Product product : products) {
+            if(productPredicate.test(product)) {
+                System.out.println(product);
+            }
+        }
+    }
+
+}
