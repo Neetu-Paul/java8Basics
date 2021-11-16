@@ -1,0 +1,28 @@
+import java.util.function.BiFunction;
+
+public class MethodReferenceExample {
+
+    public static void main(String args[]) {
+
+        BiFunction<String, String, String> biFunctionString =  MethodReferenceExample::appendTwoStrings;
+        System.out.println("Appending two strings using BiFunction Interface");
+        System.out.println(biFunctionString.apply("Neetu ","Paul"));
+
+        BiFunction<Integer, Integer, Integer> biFunctionInt = MethodReferenceExample::addTwoNumbers;
+        System.out.println("Adding two numbers using BiFunction Interface");
+        System.out.println(biFunctionInt.apply(2, 7));
+
+
+    }
+
+    public static String appendTwoStrings( String str1, String str2) {
+        return str1.concat(str2);
+    }
+
+    public static int addTwoNumbers(int num1, int num2) {
+        return num1+num2;
+    }
+
+}
+
+
