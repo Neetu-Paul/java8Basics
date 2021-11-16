@@ -1,0 +1,30 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamsExample {
+
+    public static void main(String[] args) {
+
+        List<Product> productList = Arrays.asList(
+                new Product("Wheat flour", "Pantry", 500),
+                new Product("Rice flour", "Pantry", 300),
+                new Product("Cinnamon", "Spices", 250),
+                new Product("Cloves", "Spices", 150),
+                new Product("Pepper", "Spices", 200)
+        );
+
+        //System.out.println("Initial Product stream size = " + productList.stream().count());
+
+        System.out.println("Printing all products under 'Spices' category");
+        productList.stream().
+                filter(p -> p.getProductCategory().equalsIgnoreCase("Spices")).
+                forEach(p -> System.out.println(p));
+
+        System.out.println("Printing all products with price greater than 200");
+        productList.stream().
+                filter(p -> p.getProductPrice()>200).
+                forEach(p -> System.out.println(p));
+
+    }
+
+}
