@@ -1,0 +1,17 @@
+public class ConcatString {
+
+    public static void staticVoidMethod() {
+        System.out.println("Executing static void method");
+    }
+
+    //public String appendTwoStrings(String str1, String str2);
+    //public int addTwoNumbers(int number1, int number2);
+
+    public String appendTwoStrings( String str1, String str2) {
+        return str1.concat(str2);
+    }
+
+    public int addTwoNumbers(int num1, int num2) {
+        return num1+num2;
+    }
+}
