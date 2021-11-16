@@ -1,0 +1,19 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class ForEachExample {
+
+    public static void main(String[] args) {
+
+        List<Product> productList = Arrays.asList(
+                new Product("Wheat flour", "Pantry", 500),
+                new Product("Rice flour", "Pantry", 300),
+                new Product("Cinnamon", "Spices", 250),
+                new Product("Cloves", "Spices", 150),
+                new Product("Pepper", "Spices", 200)
+        );
+
+        System.out.println("Printing the products list using for each");
+        productList.forEach(p -> System.out.println(p));
+    }
+}
