@@ -1,0 +1,63 @@
+import java.util.function.Predicate;
+
+public class Assignment17Nov {
+
+    public static void main(String[] args) {
+
+        int inputNumber = 1991;
+
+        //Start of code to check whether the given number is odd or even.
+        if(isOdd((x) -> x%2 == 1, inputNumber))
+            System.out.println("The given number is an odd number");
+        else
+            System.out.println("The given number is an even number");
+        //Start of code to check whether the given number is odd or even.
+
+        //Start of code to check whether the given number is prime or not.
+        if(isPrime(inputNumber))
+            System.out.println("The given number is a prime number");
+        else
+            System.out.println("The given number is not a prime number");
+        //End of code to check whether the given number is prime or not.
+
+        if(isPalindrome(inputNumber))
+            System.out.println("The given number is a palindrome");
+        else
+            System.out.println("The given number is not a palindrome");
+    }
+
+    public static boolean isOdd(Predicate<Integer> inputNumberPredicate, int inputNumber) {
+        return inputNumberPredicate.test(inputNumber);
+    }
+
+    public static boolean isPrime(int inputNumber) {
+        if(inputNumber <= 1) {
+            return false;
+        }
+        final int[] counter = {0};
+        for (int i = 2; i <= inputNumber/2; i++) {
+            counter[0] = i;
+            if(isOdd((x) -> x%counter[0] == 0, inputNumber))
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean isPalindrome(int inputNumber) {
+        if(inputNumber <10) {
+            return false;
+        }
+        final int[] finalSum = {0};
+        int tempNumber = inputNumber, remainder, sum = 0;
+        while (inputNumber > 0) {
+            remainder = inputNumber%10;
+            sum = sum * 10 + remainder;
+            inputNumber = inputNumber/10;
+        }
+        if(sum == tempNumber)
+            return true;
+        return false;
+    }
+
+
+}
