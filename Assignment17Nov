@@ -5,6 +5,7 @@ public class Assignment17Nov {
     public static void main(String[] args) {
 
         int inputNumber = 1991;
+        System.out.println("The input number is " + inputNumber);
 
         //Start of code to check whether the given number is odd or even.
         if(isOdd((x) -> x%2 == 1, inputNumber))
