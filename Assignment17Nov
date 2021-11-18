@@ -1,10 +1,11 @@
+import java.util.function.BiFunction;
 import java.util.function.Predicate;
 
 public class Assignment17Nov {
 
     public static void main(String[] args) {
 
-        int inputNumber = 1991;
+        int inputNumber = 0;
         System.out.println("The input number is " + inputNumber);
 
         //Start of code to check whether the given number is odd or even.
@@ -45,20 +46,19 @@ public class Assignment17Nov {
     }
 
     public static boolean isPalindrome(int inputNumber) {
-        if(inputNumber <10) {
+        if(inputNumber <= 10) {
             return false;
         }
-        final int[] finalSum = {0};
-        int tempNumber = inputNumber, remainder, sum = 0;
-        while (inputNumber > 0) {
-            remainder = inputNumber%10;
-            sum = sum * 10 + remainder;
-            inputNumber = inputNumber/10;
-        }
-        if(sum == tempNumber)
-            return true;
-        return false;
+        
+        String numberStr = String.valueOf(inputNumber);
+        String reversedNumber = new StringBuffer(numberStr).reverse().toString();
+
+        return isEqual((str1, str2) -> reversedNumber.equalsIgnoreCase(numberStr), reversedNumber, numberStr);
+
     }
 
+    public static boolean isEqual(BiFunction<String, String, Boolean> stringBiFunction, String str1, String str2) {
+        return stringBiFunction.apply(str1, str2);
+    }
 
 }
